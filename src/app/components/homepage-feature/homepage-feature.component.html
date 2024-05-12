@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row align-items-start">
+    <div class="col-md-6">
+      <div class="card mt-3 align-items-start d-flex w-100 h-75">
+        <img src="{{featuredArt.primaryImage}}" class="card-img-top img-fluid">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{featuredArt.objectName}}</h5>
+          <p class="card-text text-secondary text-start">{{featuredArt.artistDisplayName}}</p>
+          <p class="card-text text-secondary text-start">{{featuredArt.objectDate}}</p>
+          <p class="card-text text-secondary text-start">{{featuredArt.medium}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6" *ngIf="artpieces.length > 0">
+      <h2 class="fs-3" style="color:#caa600;"><span class="fs-2">M</span>ore from the same category...</h2>
+      <p class="text-secondary">Some images may not be fetched from Met's servers. Others might be inappropriate.</p>
+      <div class="container-fluid">
+        <div class="row align-items-start d-flex align-items-stretch ">
+        <div class="card mt-3 mx-3 col-md-3" *ngFor="let art of artpieces">
+          <img src="{{art.primaryImage}}" class="card-img-top img-fluid">
+          <div class="card-body">
+            <h5 class="card-title text-center">{{art.objectName}}</h5>
+            <p class="card-text text-secondary text-start">{{art.artistDisplayName}}</p>
+            <p class="card-text text-secondary text-start">{{art.objectDate}}</p>
+            <p class="card-text text-secondary text-start">{{art.medium}}</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

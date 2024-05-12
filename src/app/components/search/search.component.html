@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <p class="text-secondary">Caution! Unfiltered searches (i.e. with just a department/Any selected) may be very costly for your internet!</p>
+    <form class="d-flex col-12" role="search">
+        <select class="dropdown" #selectedDept>
+            <option value="{{anyDept.departmentId}}">{{anyDept.displayName}}</option>
+            <option *ngFor="let dept of deptList" value="{{dept.departmentId}}">{{dept.displayName}}</option>
+        </select>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #search>
+        <button class="btn btn-outline-success" type="button" (click)="getSearchResults(selectedDept.value, search.value)">Search</button>
+    </form>
+    <div class="container-fluid" *ngIf="results.length > 0">
+        <h2 class="text-secondary">Search Results</h2>
+        <div class="row align-items-start d-flex align-items-stretch">
+            <div class="card col-md-4 mt-3" *ngFor="let searchObj of results">
+                <img src="{{searchObj.primaryImage}}" class="card-img-top img-fluid">
+                <div class="card-body">
+                  <h5 class="card-title">{{searchObj.objectName}}</h5>
+                  <p class="card-text text-secondary text-start">{{searchObj.artistDisplayName}}</p>
+                  <p class="card-text text-secondary text-start">{{searchObj.objectDate}}</p>
+                  <p class="card-text text-secondary text-start">{{searchObj.medium}}</p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
