@@ -56,17 +56,24 @@ export class MetCollectionApiService {
       ),
       catchError(this.handleError)
       );
-    } else if(searchQ.length !== 0) {
+    } else if(parseInt(departmentId) !== 0 && searchQ.length !== 0) {
       return this._http.get<IObjectList>(this._metSite + this._inDepthSearchGeneral + this._inDepthSearchDept + departmentId + this._queryWithDept + searchQ)
       .pipe(
         tap(data => console.log('Debug search results2: ' + JSON.stringify(data))
       ),
       catchError(this.handleError)
       );
+    } else if(parseInt(departmentId) !== 0 && searchQ.length === 0) {
+      return this._http.get<IObjectList>(this._metSite + this._departmentOnlySearch + departmentId)
+      .pipe(
+        tap(data => console.log('Debug search results3: ' + JSON.stringify(data))
+      ),
+      catchError(this.handleError)
+      );
     } else {
       return this._http.get<IObjectList>(this._metSite + this._allObjects)
       .pipe(
-        tap(data => console.log('Debug search results3: ' + JSON.stringify(data))
+        tap(data => console.log('Debug search results4: ' + JSON.stringify(data))
       ),
       catchError(this.handleError)
       );
