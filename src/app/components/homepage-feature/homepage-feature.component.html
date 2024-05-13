@@ -1,7 +1,9 @@
 <div class="container-fluid">
+  <h2 class="h2 text-center text-secondary">Welcome to H!-Art!</h2>
   <div class="row align-items-start">
-    <div class="col-md-6">
-      <div class="card mt-3 align-items-start d-flex w-100 h-75">
+    <div class="col-sm-12 col-md-6">
+      <h2 class="h2 fs-3" style="color:#caa600;"><span class="fs-2">A</span>rt of the day...</h2>
+      <div class="card my-3 d-flex w-100 h-75">
         <img src="{{featuredArt.primaryImage}}" class="card-img-top img-fluid">
         <div class="card-body">
           <h5 class="card-title text-center">{{featuredArt.objectName}}</h5>
@@ -11,12 +13,12 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6" *ngIf="artpieces.length > 0">
-      <h2 class="fs-3" style="color:#caa600;"><span class="fs-2">M</span>ore from the same category...</h2>
+    <div class="col-sm-12 col-md-6" *ngIf="artpieces.length > 0">
+      <h2 class="h2 fs-3" style="color:#caa600;"><span class="fs-2">M</span>ore from the same department...</h2>
       <p class="text-secondary">Some images may not be fetched from Met's servers. Others might be inappropriate.</p>
       <div class="container-fluid">
         <div class="row align-items-start d-flex align-items-stretch ">
-        <div class="card mt-3 mx-3 col-md-3" *ngFor="let art of artpieces">
+        <div class="card my-3 mx-3 col-sm-12 col-md-3" *ngFor="let art of artpieces">
           <img src="{{art.primaryImage}}" class="card-img-top img-fluid">
           <div class="card-body">
             <h5 class="card-title text-center">{{art.objectName}}</h5>

@@ -12,9 +12,11 @@ import { CommunityEntryComponent } from '../community-entry/community-entry.comp
   styleUrl: './community.component.css'
 })
 export class CommunityComponent {
-  submissions:ISubmission | any;
+  submissions:ISubmission[];
   show:boolean = false;
-  constructor(private _service:SubmissionsService) {}
+  constructor(private _service:SubmissionsService) {
+    this.submissions = [];
+  }
 
   ngOnInit() {
     this.fetchSubmissions();
@@ -34,5 +36,9 @@ export class CommunityComponent {
     );
     this.fetchSubmissions();
     return false;
+  }
+
+  refresh() {
+    this.fetchSubmissions();
   }
 }

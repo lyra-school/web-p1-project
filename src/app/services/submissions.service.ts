@@ -7,7 +7,7 @@ import { ISubmission } from '../interfaces/submission';
   providedIn: 'root'
 })
 export class SubmissionsService {
-  private _express="http://localhost:5050/submissions";
+  private _express="http://54.75.179.60:5050/submissions";
   constructor(private _http:HttpClient) { }
 
   getSubmissions():Observable<any> {

@@ -1,17 +1,26 @@
 <div class="container-fluid">
-    <p class="text-secondary">Caution! Unfiltered searches (i.e. with just a department/Any selected) may be very costly for your internet!</p>
-    <form class="d-flex col-12" role="search">
-        <select class="dropdown" #selectedDept>
-            <option value="{{anyDept.departmentId}}">{{anyDept.displayName}}</option>
-            <option *ngFor="let dept of deptList" value="{{dept.departmentId}}">{{dept.displayName}}</option>
-        </select>
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #search>
-        <button class="btn btn-outline-success" type="button" (click)="getSearchResults(selectedDept.value, search.value)">Search</button>
+    <h2 class="h2 fs-3 mx-3 mt-2" style="color:#caa600;"><span class="fs-2">B</span>rowse art...</h2>
+    <p class="text-secondary mx-3">Caution! Unfiltered searches (i.e. with just a department/Any selected) may be very costly for your internet!</p>
+    <form class="container-fluid row align-items-startalign-items-stretch" role="search">
+        <div class="col-sm-12 col-md-3 mx-3 my-3">
+            <select class="dropdown p-2" #selectedDept>
+                <option value="{{anyDept.departmentId}}">{{anyDept.displayName}}</option>
+                <option *ngFor="let dept of deptList" value="{{dept.departmentId}}">{{dept.displayName}}</option>
+            </select>
+        </div>
+        <div class="col-sm-12 col-md-6 mx-3 my-3">
+            <input class="form-control border border-dark p-2" type="search" placeholder="Enter your query" aria-label="Search" #search>
+        </div>
+        <div class="col-sm-12 col-md-2 mx-3 my-3">
+            <button class="btn btn-outline-primary p-2" type="button" (click)="getSearchResults(selectedDept.value, search.value)">Search</button>
+        </div>
     </form>
-    <div class="container-fluid" *ngIf="results.length > 0">
-        <h2 class="text-secondary">Search Results</h2>
+    <div class="container-fluid my-3" *ngIf="results.length > 0">
+        <h2 class="h2" style="color:#caa600;">Search Results</h2>
+        <p class="text-secondary">Showing the first 12 results (the API doesn't innately support pagination.) Try refining your query!</p>
+        <p class="text-secondary">Some results have the same issue fetching images. This is a problem with the remote API.</p>
         <div class="row align-items-start d-flex align-items-stretch">
-            <div class="card col-md-4 mt-3" *ngFor="let searchObj of results">
+            <div class="card col-sm-12 col-md-3 mx-5 my-3" *ngFor="let searchObj of results">
                 <img src="{{searchObj.primaryImage}}" class="card-img-top img-fluid">
                 <div class="card-body">
                   <h5 class="card-title">{{searchObj.objectName}}</h5>

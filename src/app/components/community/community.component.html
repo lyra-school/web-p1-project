@@ -1,1 +1,30 @@
-<p>community works!</p>
+<div class="container-fluid">
+  <h2 class="h2 fs-3" style="color:#caa600;"><span class="fs-2">C</span>ommunity hub...</h2>
+  <p class="text-secondary mx-2">Show off your creations!</p>
+      <form class="container-fluid row align-items-start my-5">
+        <h2 class="h2 fs-3" style="color:#caa600;">Submissions</h2>
+        <p class="text-secondary">Have an artpiece that you'd like to add to our community collection?</p>
+        <div class="col-sm-12 col-md-6 my-3">
+          <label for="pieceName" class="form-label">Name:</label>
+          <input type="text" class="form-control" name="pieceName"  #pieceName placeholder="Enter name of piece to submit">
+        </div>
+        <div class="col-sm-12 col-md-6 my-3">
+          <label for="pieceAuthor" class="form-label">Author:</label>
+          <input type="text" class="form-control" name="pieceAuthor" #pieceAuthor placeholder="Enter name of author">
+        </div>
+        <div class="col-12 my-3">
+          <label for="pieceImage" class="form-label">Image:</label>
+          <input type="text" class="form-control" name="pieceImage" #pieceImage placeholder="Enter link to an image of your piece">
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary my-3" type="submit" (click)="enterSubmission(pieceName.value, pieceAuthor.value, pieceImage.value)">Submit</button>
+        </div>
+      </form>
+</div>
+  
+<div class="container-fluid" *ngIf="submissions.length > 0">
+  <h2 class="h2 fs-3" style="color:#caa600;">Community Collection</h2>
+  <div class="row align-items-start align-items-stretch d-flex">
+    <app-community-entry class="col-md-3" *ngFor="let subs of submissions" [submissionData]="subs"></app-community-entry>
+  </div>
+</div>

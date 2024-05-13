@@ -1,1 +1,7 @@
-<p>community-entry works!</p>
+<div class="card mt-3 mx-3" *ngIf="submissionData !== null">
+    <img src="{{submissionData?.imageURL}}" class="card-img-top img-fluid">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{submissionData?.name}}</h5>
+      <p class="card-text text-secondary text-center">{{submissionData?.author}}</p>
+    </div>
+</div>
